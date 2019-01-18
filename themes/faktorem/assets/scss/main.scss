@@ -1,0 +1,22 @@
+@import 'modularscale/modularscale';
+
+$modularscale: (
+  base: 1em,
+  ratio: 1.5
+);
+
+.main {
+    text-align: center;
+    width: 80%;
+    margin: 10rem auto 0;
+    h1 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: ms(2);
+        margin-bottom: 6rem;
+    }
+    img {
+        width: 95%;
+        border-radius: 3px;
+    }
+}
