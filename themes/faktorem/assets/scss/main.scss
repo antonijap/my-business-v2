@@ -1,22 +1,233 @@
 @import 'modularscale/modularscale';
 
-$modularscale: (
-  base: 1em,
-  ratio: 1.5
-);
+$modularscale: (base: 1em,
+ratio: 1.5);
+
+// Screen size variables
+$screen-xs-min: 425px; // Tiny phones
+$screen-sm-min: 576px; // Small tablets and large smartphones (landscape view)
+$screen-md-min: 768px; // Small tablets (portrait view)
+$screen-lg-min: 992px; // Tablets and small desktops
+$screen-xl-min: 1200px; // Large tablets and desktops
+$screen-xxl-min: 1920px; // Large tablets and desktops
+
+// Colors
+$color-primary: #273145;
+$color-secondary: #565960;
+$color-white: #000000;
+
+// Mixins
+@mixin xs {
+  @media (min-width: #{$screen-xs-min}) {
+    @content;
+  }
+}
+
+// Tiny devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Small devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
 
 .main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .intro {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     text-align: center;
-    width: 80%;
-    margin: 10rem auto 0;
-    h1 {
+    width: 95%;
+    padding-top: 2rem;
+    margin: auto;
+
+    .copy-wrapper {
+      width: 90%;
+      margin: auto;
+
+      h1 {
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
-        font-size: ms(2);
-        margin-bottom: 6rem;
+        font-size: ms(1);
+        color: $color-primary;
+
+        @include sm {
+          font-size: ms(2);
+        }
+
+        @include lg {
+          font-size: ms(3);
+        }
+      }
+
+      h2 {
+        font-family: 'Poppins', sans-serif;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        font-size: ms(0);
+        color: $color-primary;
+
+        span {
+          text-transform: uppercase;
+          letter-spacing: .5px;
+          font-weight: 400;
+        }
+
+        @include sm {
+          font-size: ms(1);
+          margin-bottom: 6rem;
+        }
+      }
+
+      @include md {
+        width: 83%;
+      }
+
+      @include lg {
+        width: 90%;
+      }
+
+      @include xl {
+        width: 80%;
+      }
+
+      @include xxl {
+        width: 50%;
+      }
     }
+
     img {
-        width: 95%;
-        border-radius: 3px;
+      border-radius: 3px;
+      box-shadow: 0px 12px 24px -5px rgba(0, 0, 0, 0.17);
+      width: 100%;
+      display: none;
+      margin: auto;
+      z-index: 1;
+      margin-bottom: -4rem;
+
+      @include sm {
+        display: block;
+      }
+
+      @include md {
+        width: 83%;
+      }
+
+      @include lg {
+        width: 90%;
+      }
+
+      @include xl {
+        width: 80%;
+      }
+
+      @include xxl {
+        width: 50%;
+      }
     }
+
+    @include sm {
+      padding-top: 7rem;
+    }
+  }
+
+  .section {
+    background: #F6F7F9;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    .section-wrapper {
+      width: 90%;
+      margin: auto;
+      padding: 2rem 0 2rem;
+
+      h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: ms(1);
+        color: $color-primary;
+        margin: auto auto 1rem;
+
+        @include sm {
+          font-size: ms(2);
+        }
+      }
+
+      p {
+        font-size: ms(0);
+        font-family: 'Work Sans', sans-serif;
+        line-height: ms(1);
+        margin: auto;
+        color: $color-secondary;
+
+        @include md {
+          width: 63%;
+        }
+
+        @include lg {
+          width: 60%;
+        }
+
+        @include xl {
+          width: 60%;
+        }
+
+        @include xxl {
+          width: 60%;
+        }
+      }
+
+      @include sm {
+        padding: 10rem 0 5rem;
+      }
+
+      @include md {
+        width: 83%;
+      }
+
+      @include lg {
+        width: 90%;
+      }
+
+      @include xl {
+        width: 80%;
+      }
+
+      @include xxl {
+        width: 50%;
+      }
+    }
+  }
 }
