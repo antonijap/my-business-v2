@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{ .Site.Title }}</title>
-        {{ $style := resources.Get "scss/main.scss" | toCSS | postCSS | minify | fingerprint }}
-        <link rel="stylesheet" href="{{ $style.Permalink }}">
-        <link rel="stylesheet" href="/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ .Site.Title }}</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Chivo:400,700,900|Poppins:400,500,600,700|Work+Sans:400,500,600,700,800,900" rel="stylesheet">
-    </head>
-    <body>
-        <div class="main">
-        {{ block "main" . }}
-            <!-- The part of the page that begins to differ between templates -->
-        {{ end }}
-        </div>
+  {{ $owlCSS := resources.Get "/js/owl.carousel/dist/assets/owl.carousel.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $owlCSS.Permalink }}" />
+
+  {{ $owlTheme := resources.Get "js/owl.carousel/dist/assets/owl.theme.default.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $owlTheme.Permalink }}" />
+
+  {{ $style := resources.Get "scss/main.scss" | toCSS | postCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
 
 
 
-        {{ $plugins := resources.Get "js/prefixer.js" }}
-        {{ $owl := resources.Get "/js/owl.carousel/dist/owl.carousel.js" }}
-        {{ $global := resources.Get "js/main.js" }}
-        {{ $jQuery := resources.Get "js/jquery/dist/jquery.js" }}
-        {{ $js := slice $jQuery $owl $plugins $global | resources.Concat "js/bundle.js" }}
 
-        <script src="{{ $js.Permalink }}"></script>
-    </body>
+  <link href="https://fonts.googleapis.com/css?family=Chivo:400,700,900|Poppins:400,500,600,700|Work+Sans:400,500,600,700,800,900"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="main">
+    {{ block "main" . }}
+    <!-- The part of the page that begins to differ between templates -->
+    {{ end }}
+  </div>
+
+  {{ $plugins := resources.Get "js/prefixer.js" }}
+  {{ $owl := resources.Get "/js/owl.carousel/dist/owl.carousel.js" }}
+  {{ $global := resources.Get "js/main.js" }}
+  {{ $jQuery := resources.Get "js/jquery/dist/jquery.js" }}
+  {{ $js := slice $jQuery $owl $plugins $global | resources.Concat "js/bundle.js" }}
+
+  <script src="{{ $js.Permalink }}"></script>
+</body>
+
 </html>
-
-
-
-
