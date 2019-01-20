@@ -9,7 +9,6 @@ $screen-sm-min: 576px; // Small tablets and large smartphones (landscape view)
 $screen-md-min: 768px; // Small tablets (portrait view)
 $screen-lg-min: 992px; // Tablets and small desktops
 $screen-xl-min: 1200px; // Large tablets and desktops
-$screen-xxl-min: 1920px; // Large tablets and desktops
 
 // Colors
 $color-primary: #273145;
@@ -46,12 +45,6 @@ $color-white: #000000;
 
 // Large devices
 @mixin xl {
-  @media (min-width: #{$screen-xl-min}) {
-    @content;
-  }
-}
-
-@mixin xxl {
   @media (min-width: #{$screen-xl-min}) {
     @content;
   }
@@ -126,10 +119,6 @@ $color-white: #000000;
       @include xl {
         width: 80%;
       }
-
-      @include xxl {
-        width: 50%;
-      }
     }
 
     img {
@@ -159,6 +148,7 @@ $color-white: #000000;
 
       @include retina-only {
         width: 70%;
+        background: yellow
       }
     }
 
@@ -243,10 +233,6 @@ $color-white: #000000;
         @include xl {
           width: 60%;
         }
-
-        @include xxl {
-          width: 60%;
-        }
       }
 
       .owl-carousel {
@@ -325,11 +311,7 @@ $color-white: #000000;
       }
 
       @include xl {
-        width: 80%;
-      }
-
-      @include xxl {
-        width: 50%;
+        width: 70%;
       }
     }
   }
@@ -373,10 +355,6 @@ footer {
 
   @include xl {
     width: 80%;
-  }
-
-  @include xxl {
-    width: 50%;
   }
 
   a {
