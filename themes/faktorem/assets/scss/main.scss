@@ -345,7 +345,7 @@ $color-white: #000000;
 }
 footer {
   display: flex;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   color: $color-primary;
   margin: 6rem auto;
   font-size: ms(0);
@@ -389,6 +389,7 @@ footer {
         font-weight: 700;
         font-size: ms(0);
         margin-bottom: .5rem;
+        font-family: 'Work Sans', sans-serif;
       }
 
       ul {
