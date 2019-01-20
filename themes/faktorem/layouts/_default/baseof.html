@@ -16,9 +16,6 @@
   {{ $style := resources.Get "scss/main.scss" | toCSS | postCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink }}">
 
-
-
-
   <link href="https://fonts.googleapis.com/css?family=Chivo:400,700,900|Poppins:400,500,600,700|Work+Sans:400,500,600,700,800,900"
     rel="stylesheet">
 </head>
@@ -29,6 +26,8 @@
     <!-- The part of the page that begins to differ between templates -->
     {{ end }}
   </div>
+
+  {{ partial "ga.html" . }}
 
   {{ $plugins := resources.Get "js/prefixer.js" }}
   {{ $owl := resources.Get "/js/owl.carousel/dist/owl.carousel.js" }}

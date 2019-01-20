@@ -345,11 +345,11 @@ $color-white: #000000;
 }
 footer {
   display: flex;
-  justify-content: space-between;
   font-family: 'Poppins', sans-serif;
   color: $color-primary;
   margin: 6rem auto;
   font-size: ms(0);
+  flex-direction: column;
 
   @include md {
     width: 83%;
@@ -357,6 +357,7 @@ footer {
 
   @include lg {
     width: 90%;
+    flex-direction: row;
   }
 
   @include xl {
@@ -381,11 +382,9 @@ footer {
 
   .left {
     display: flex;
-    margin: auto;
+    justify-content: space-around;
 
     div {
-      margin-right: 2rem;
-
       h3 {
         font-weight: 700;
         font-size: ms(0);
@@ -401,6 +400,10 @@ footer {
           padding: .2rem 0;
         }
       }
+
+      @include lg {
+        margin-right: 2rem;
+      }
     }
   }
 
@@ -409,12 +412,17 @@ footer {
     display: flex;
     flex-direction: column;
     align-content: space-between;
-    text-align: right;
+    text-align: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
 
     span {
       padding: .2rem 0;
+    }
+
+    @include lg {
+      text-align: right;
+      margin-top: 0;
     }
   }
 }
