@@ -68,6 +68,7 @@ $color-white: #000000;
     text-align: center;
     width: 95%;
     padding-top: 2rem;
+    padding-bottom: 2rem;
     margin: auto;
 
     .copy-wrapper {
@@ -354,7 +355,7 @@ footer {
   }
 
   @include xl {
-    width: 80%;
+    width: 60%;
   }
 
   a {
